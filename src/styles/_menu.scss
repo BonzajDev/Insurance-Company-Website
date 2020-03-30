@@ -12,9 +12,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-basis: 20%; 
+            flex-basis: 20%;
             height: 100%;
-            font-size: 4rem;
+            
+            p {
+                padding: 10px 0;
+                color: $main-color;
+                font-size: 4rem;
+                
+            }
         }
         & .menu__bar {
             flex-basis: 80%;
@@ -25,46 +31,47 @@
                 justify-content: flex-end;
                 align-items: center;
                 .menu__element {
+                    position: relative;
                     cursor: pointer;
                     padding: 10px 20px;
                     border-bottom: 3px solid white;
-                    transition: 0.3s;
                     a {
                         text-decoration: none;
-                        color: black;
-                        
-                    }  
-                }
-                li:hover {
-                    border-color: black;
-                }
+                        color: black; 
+                    } 
 
-                div.dropdown {
-                    text-align: center;
-                    ul {
+                    .menu__dropdown-list {
                         position: absolute;
-                        background-color: #fff;
-                        display: none;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background-color: rgba(255, 255, 255, 0.6);
+                        opacity: 0;
+                        visibility: hidden;
                         li {
-                            padding: 20px 20px;
-                            transition: 0.2s;
-                            a {
-                                cursor: pointer;
-                                text-decoration: none;
-                                color: black;
-                                
-                            }
+                            padding: 20px 0;
+                            // border-bottom: 1px solid black;
+                            
                         }
                         li:hover {
-                            background-color: #eee;
+                            background-color: rgba(228, 27, 71, 0.9);
+                            a {
+                                color: white;
+                            }
                         }
-                    }
-
-                    .menu__dropdown-element:hover + ul {
-                        display: block;
                     }
                     
                 }
+
+                .menu__dropdown-element:hover .menu__dropdown-list {
+                    visibility: visible;
+                    opacity: 1;
+                }
+                li:hover {
+                    border-color: $main-color;
+                }
+
+                
             }
         }
     }
